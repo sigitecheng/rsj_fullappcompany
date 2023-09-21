@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\NewsCollection;
 use App\Models\News;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
@@ -13,10 +14,12 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::all();
+        // $news = DB::table('news')->simplePaginate(10);
+        $news = new NewsCollection(News::paginate(20));
+        // dd($news);
         return Inertia::render('Frontend', [
-            'title' => 'Sigitmatika',
-            'penjelasan' => 'Ini adalah halaman frontend',
+            'title' => 'Sigimatika',
+            'keterangan' => 'Ini adalah halaman frontend',
             'news' => $news,
         ]);
         //

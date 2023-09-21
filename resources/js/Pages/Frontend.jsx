@@ -1,10 +1,18 @@
 import React from 'react';
+import Navbar from '@/Components/Homepage/navbar'
+import Newslist from '@/Components/Homepage/newslist'
+
 import { Link, Head } from '@inertiajs/react';
 
 export default function Homepage(props){
-    console.log(props)
+    // console.log('ini adalah data parent : ', props)
+
     return(
-            <div className='grid justify-center items-center bg-slate-400'>
+       <>
+        <Head title={props.title}/>
+        <Navbar />
+        <Newslist news={props.news}/>
+            {/* <div className='grid justify-center items-center bg-slate-400'>
                 <Head title={props.title}/>
                 <p className='card w-full mt-6 text-white text-xl text-uppercase'>{props.penjelasan}</p>
                 {props.news ? props.news.map((data, i ) => {
@@ -17,7 +25,8 @@ export default function Homepage(props){
                             </div>
                         )
                 }): <p>Belum ada data yang ditampilkan</p> }
-            </div>
-        
+            </div> */}
+            
+            </>
     )
 }

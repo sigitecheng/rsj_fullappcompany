@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 
-        News::factory(10)->create();
+        News::factory(50)->create();
     }
 }
