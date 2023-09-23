@@ -14,8 +14,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        // $news = DB::table('news')->simplePaginate(10);
-        $news = new NewsCollection(News::paginate(20));
+        $news = new NewsCollection(News::paginate(9));
         // dd($news);
         return Inertia::render('Frontend', [
             'title' => 'Sigimatika',

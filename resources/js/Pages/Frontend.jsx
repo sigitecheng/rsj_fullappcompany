@@ -1,32 +1,24 @@
 import React from 'react';
 import Navbar from '@/Components/Homepage/navbar'
 import Newslist from '@/Components/Homepage/newslist'
+import Paginator from '@/Components/Homepage/Paginator'
 
 import { Link, Head } from '@inertiajs/react';
 
 export default function Homepage(props){
-    // console.log('ini adalah data parent : ', props)
 
     return(
        <>
+       <div className="min-h-screen bg-slate-300">
         <Head title={props.title}/>
         <Navbar />
-        <Newslist news={props.news}/>
-            {/* <div className='grid justify-center items-center bg-slate-400'>
-                <Head title={props.title}/>
-                <p className='card w-full mt-6 text-white text-xl text-uppercase'>{props.penjelasan}</p>
-                {props.news ? props.news.map((data, i ) => {
-                        return(
-                            <div key={i} className='p-4 m-2 bg-white text-black rounded-lg'>
-                               <p className='text-2xl font-bold'>Title : {data.title}</p>
-                               <p>Keterangan : {data.penjelasan}</p>
-                               <p>Kategori : {data.kategori}</p>
-                               <p>Penulis : {data.penulis}</p>
-                            </div>
-                        )
-                }): <p>Belum ada data yang ditampilkan</p> }
-            </div> */}
-            
+        <div className="flex justify-center mx-4 my-4 flex-col lg:flex-row lg:flex-wrap lg:items-stretch items-center gap-4">
+            <Newslist news = {props.news.data}/>
+        </div>
+        <div className=" bg-slate-300 p-4">
+            <Paginator meta = {props.news.meta} />
+        </div>
+        </div>
             </>
     )
 }
