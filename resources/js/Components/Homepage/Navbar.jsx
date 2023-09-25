@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link, Head } from '@inertiajs/react';
 
+
 // import icon
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 
-// import img
-import img from '@/img/alif.jpg'
-
-const Navbar = () => {
+const Navbar = ({user}) => {
+  console.log('isUser?:', user)
     return(
 
 <div className="navbar bg-slate-600">
@@ -25,14 +24,23 @@ const Navbar = () => {
         </div>
       </label>
       <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+        {!user ? 
+         <>
+         <li><Link href={route('register')}>Register</Link></li>
+         <li><Link href={route('login')}>Login</Link></li>
+         </>
+          : 
+       <>
         <li>
-          <a className="justify-between">
+          <Link href={route('dashboard')} className="justify-between">
             Profile
             <span className="badge">New</span>
-          </a>
+          </Link>
         </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        <li><Link>Settings</Link></li>
+        <li><Link>Logout</Link></li>
+       </> 
+      }
       </ul>
     </div>
   </div>

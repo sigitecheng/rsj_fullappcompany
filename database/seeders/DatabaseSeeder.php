@@ -27,11 +27,11 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
-        // ]);
+        // ]);  
 
         User::factory(2)->create();
 
         // produksi table News
-        News::factory(4)->create();
+        News::factory(27)->create();
     }
 }

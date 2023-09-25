@@ -18,7 +18,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/home', [NewsController::class, 'index']);
- 
+
 
 // =========================
 
